@@ -62,11 +62,12 @@ fun QuoteListItem(quote: Quote, onClick: () -> Unit ){
                 Text(
                     text=quote.quote,
                     style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 8.dp)
+                    modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 8.dp),
+                    fontWeight = FontWeight.Bold
                 )
                 Box(
                     modifier = Modifier.background(Color(0xFF444444))
-                        .fillMaxWidth(.4f)
+                        .fillMaxWidth(.5f)
                         .height(1.dp)
                 )
                 Text(
