@@ -12,15 +12,28 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.gursharancooptdemo1.Screens.QuoteDetail
+import com.example.gursharancooptdemo1.Screens.QuoteListScreen
 import com.example.gursharancooptdemo1.ui.theme.GursharanCooptDemo1Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        DataManager.loadAssetsFromFile(this )
         setContent {
-            QuoteDetail()
+            App()
         }
     }
+}
+
+@Composable
+fun App(){
+    if(DataManager.isDataLoaded.value){
+        QuoteListScreen(data = DataManager.data) {
+
+        }
+    }
+
 }
 

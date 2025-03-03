@@ -2,6 +2,7 @@ package com.example.gursharancooptdemo1.Screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 
@@ -13,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.FormatQuote
@@ -32,11 +34,12 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.gursharancooptdemo1.Models.Quote
 import com.example.gursharancooptdemo1.R
 
 @Composable
-fun QuoteListItem(){
-    Card( modifier = Modifier.padding(8.dp)){
+fun QuoteListItem(quote: Quote, onClick: () -> Unit ){
+    Card( modifier = Modifier.clickable { onClick() }.padding(8.dp)){
         Row(
             modifier = Modifier.padding(16.dp)
         ){
@@ -57,66 +60,23 @@ fun QuoteListItem(){
                 modifier = Modifier.weight(1f)
             ){
                 Text(
-                    text="Time is money",
+                    text=quote.quote,
                     style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 8.dp))
-
-            }
-            Box(
-                modifier = Modifier.background(Color(0xFFEEEEEE))
-                    .fillMaxWidth(.4f)
-                    .height(1.dp)
-            )
-            Text(
-                text ="Thero",
-                style = MaterialTheme.typography.bodySmall,
-                fontWeight = FontWeight.Thin,
-                modifier = Modifier.padding(top= 4.dp)
-            )
-        }
-    }
-
-}
-
-@Composable
-fun QuoteDetail(){
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize(1f)
-            .background(
-                Brush.sweepGradient(
-                    colors = listOf(
-                        Color(0xFFAAAAAA),
-                        Color(0xFF888888),
-                        Color(0xFF666666)
-                    )
+                    modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 8.dp)
                 )
-            )
-    ){
-        Card(
-            modifier = Modifier.padding(32.dp)
-        ){
-            Column(
-                verticalArrangement = Arrangement.Center,
-                modifier = Modifier.padding(16.dp, 24.dp)
-            ){
-                Image(
-                    imageVector = Icons.Filled.FormatQuote,
-                    contentDescription = "Quote",
-                    modifier = Modifier.size(80.dp).rotate(180F)
+                Box(
+                    modifier = Modifier.background(Color(0xFF444444))
+                        .fillMaxWidth(.4f)
+                        .height(1.dp)
                 )
                 Text(
-                    text = "Time is money",
-                    fontFamily = FontFamily(Font(R.font.montserrat_regular)),
-                    style = MaterialTheme.typography.bodyLarge
-                )
-                Spacer(Modifier.height(16.dp))
-                Text(
-                    text = "Thro",
-                    fontFamily = FontFamily(Font(R.font.montserrat_regular)),
-                    style = MaterialTheme.typography.bodySmall
+                    text = quote.author,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = Color.Black,
+                    modifier = Modifier.padding(top= 4.dp)
                 )
             }
         }
     }
+
 }
