@@ -1,5 +1,6 @@
 package com.example.gursharancooptdemo1.Screens
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -39,7 +40,10 @@ import com.example.gursharancooptdemo1.R
 
 @Composable
 fun QuoteListItem(quote: Quote, onClick: (quote: Quote) -> Unit ){
-    Card( modifier = Modifier.clickable { onClick(quote) }
+    Card( modifier = Modifier.clickable {
+                                Log.d("QuoteListItem", "Quote clicked")
+                                onClick(quote)
+                            }
                             .padding(8.dp)
     ){
         Row(

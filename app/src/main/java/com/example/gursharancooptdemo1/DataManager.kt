@@ -26,10 +26,10 @@ object DataManager {
     fun switchPages(quote: Quote?){
         if(currentPage.value == Pages.LISTING){
             currentQuote = quote
-            currentPage.value == Pages.DETAIL
+            currentPage.value = Pages.DETAIL
         }
         else{
-            currentPage.value == Pages.LISTING
+            currentPage.value = Pages.LISTING
         }
     }
 }
