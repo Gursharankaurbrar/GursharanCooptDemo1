@@ -38,8 +38,10 @@ import com.example.gursharancooptdemo1.Models.Quote
 import com.example.gursharancooptdemo1.R
 
 @Composable
-fun QuoteListItem(quote: Quote, onClick: () -> Unit ){
-    Card( modifier = Modifier.clickable { onClick() }.padding(8.dp)){
+fun QuoteListItem(quote: Quote, onClick: (quote: Quote) -> Unit ){
+    Card( modifier = Modifier.clickable { onClick(quote) }
+                            .padding(8.dp)
+    ){
         Row(
             modifier = Modifier.padding(16.dp)
         ){

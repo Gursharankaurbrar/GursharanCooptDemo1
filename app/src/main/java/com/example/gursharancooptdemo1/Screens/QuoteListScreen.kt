@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import com.example.gursharancooptdemo1.Models.Quote
 
 @Composable
-fun QuoteListScreen(data:Array<Quote>, onClick: ()-> Unit){
+fun QuoteListScreen(data:Array<Quote>, onClick: (quote: Quote)-> Unit){
     Column(){
         Text(text= "My Co-opt Demo 1: Quotes App",
             textAlign = TextAlign.Center,
@@ -22,8 +22,6 @@ fun QuoteListScreen(data:Array<Quote>, onClick: ()-> Unit){
             style = MaterialTheme.typography.bodyLarge,
             fontWeight = FontWeight.Bold
         )
-        QuoteList(data){
-            onClick()
-        }
+        QuoteList(data= data, onClick)
     }
 }
